@@ -1,6 +1,11 @@
 use strict;
 use warnings;
-use Test::More tests => 1;
+use Test::More;
+
+BEGIN {
+    eval "use Sledge::TestPages";
+    plan $@ ? (skip_all => 'needs Sledge::TestPages for testing') : (tests => 1);
+}
 
 package Mock::Pages;
 use base qw/Sledge::TestPages/;
@@ -17,4 +22,4 @@ $Mock::Pages::TMPL_PATH = "t/template";
 
 my $page = Mock::Pages->new;
 $page->dispatch('foo');
-like $page->output, qr[http://localhost/\?keyword=hoge&page=3];
+like $page->output, qr[http://localhost/\?keyword=hoge&amp;page=3];

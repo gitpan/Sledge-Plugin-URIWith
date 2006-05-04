@@ -1,4 +1,8 @@
 Revision history for Perl extension Sledge::Plugin::URIWith
 
+0.02  Thu May 04 16:37:44 2006
+    - add dependency
+    - test bug fixed
+
 0.01  Thu May  4 15:51:48 2006
     - original version
